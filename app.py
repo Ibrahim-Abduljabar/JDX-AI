@@ -35,6 +35,9 @@ def generate_jd(title, tasks, skills):
     response = requests.post(url, headers=headers, json=data)
     result = response.json()
 
+    if "choices" not in result:
+        return "⚠ حدث خطأ أثناء الاتصال بالنموذج. تأكد من صحة المفتاح أو أعد المحاولة."
+
     return result["choices"][0]["message"]["content"]
 
 
@@ -67,3 +70,6 @@ if st.button("توليد الوصف الوظيفي"):
         )
 
         st.info("إذا تبغى تحفظ الوصف كـ PDF اضغط Ctrl + P")
+
+if st.button("➕ إضافة وصف وظيفي جديد"):
+    st.experimental_rerun()
