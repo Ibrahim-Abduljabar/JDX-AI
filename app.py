@@ -43,9 +43,9 @@ def generate_jd(title, tasks, skills):
 
 st.markdown("### الوصف الوظيفي رقم 1")
 
-title = st.text_input("المسمى الوظيفي", "")
-tasks = st.text_area("المهام الأساسية", "")
-skills = st.text_area("المهارات المطلوبة", "")
+title = st.text_input("المسمى الوظيفي", "", key="title")
+tasks = st.text_area("المهام الأساسية", "", key="tasks")
+skills = st.text_area("المهارات المطلوبة", "", key="skills")
 
 if st.button("توليد الوصف الوظيفي"):
     if title.strip() == "" or tasks.strip() == "" or skills.strip() == "":
@@ -72,4 +72,7 @@ if st.button("توليد الوصف الوظيفي"):
         st.info("إذا تبغى تحفظ الوصف كـ PDF اضغط Ctrl + P")
 
 if st.button("➕ إضافة وصف وظيفي جديد"):
+    st.session_state["title"] = ""
+    st.session_state["tasks"] = ""
+    st.session_state["skills"] = ""
     st.rerun()
