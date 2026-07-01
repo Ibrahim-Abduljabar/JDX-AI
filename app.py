@@ -72,7 +72,27 @@ if st.button("توليد الوصف الوظيفي"):
         st.info("إذا تبغى تحفظ الوصف كـ PDF اضغط Ctrl + P")
 
 if st.button("➕ إضافة وصف وظيفي جديد"):
-    st.session_state["title"] = ""
-    st.session_state["tasks"] = ""
-    st.session_state["skills"] = ""
-    st.rerun()
+    st.markdown("### الوصف الوظيفي رقم 2")
+
+    new_title = st.text_input("المسمى الوظيفي (جديد)", "")
+    new_tasks = st.text_area("المهام الأساسية (جديد)", "")
+    new_skills = st.text_area("المهارات المطلوبة (جديد)", "")
+
+    if st.button("توليد الوصف الوظيفي الجديد"):
+        jd_text2 = generate_jd(new_title, new_tasks, new_skills)
+
+        st.markdown("### النتيجة:")
+        st.markdown(
+            f"""
+            <div style="
+                padding: 15px;
+                background: #f7f7f7;
+                border-radius: 10px;
+                border: 1px solid #ddd;
+                line-height: 1.8;
+            ">
+                {jd_text2}
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
