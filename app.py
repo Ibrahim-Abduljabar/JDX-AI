@@ -27,9 +27,9 @@ def generate_jd(title, tasks, skills):
     """
 
     data = {
-        "model": "llama3-8b-8192",
+        "model": "llama-3.1-8b-instant",
         "messages": [{"role": "user", "content": prompt}],
-        "temperature": 0.4
+        "temperature": 0.3
     }
 
     response = requests.post(url, headers=headers, json=data)
