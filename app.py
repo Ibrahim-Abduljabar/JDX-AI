@@ -72,4 +72,4 @@ if st.button("توليد الوصف الوظيفي"):
         st.info("إذا تبغى تحفظ الوصف كـ PDF اضغط Ctrl + P")
 
 if st.button("➕ إضافة وصف وظيفي جديد"):
-    st.experimental_rerun()
+    st.rerun()
