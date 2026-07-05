@@ -1,7 +1,10 @@
 import streamlit as st
 import requests
 import os
+from logsnag import LogSnag
 
+log_client = LogSnag(token=st.secrets["LOGSNAG_TOKEN"], project="jdx-ai")
+log_client.track(channel="visits", event="New Visit")
 st.set_page_config(page_title="JDX AI", layout="wide")
 
 st.markdown("<h1 style='text-align: center;'>مولد الوصف الوظيفي — JDX AI</h1>", unsafe_allow_html=True)
